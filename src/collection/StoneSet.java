@@ -19,9 +19,7 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean add(Stone element) {
-        if (element == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkObjForNull(element);
 
         if (contains(element)) {
             return false;
@@ -33,19 +31,15 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean addAll(Collection<? extends Stone> collection) {
-        if (collection == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkCollForNull(collection);
 
         boolean changed = false;
         Iterator<?> iterator = collection.iterator();
 
         while (iterator.hasNext()) {
-            Object o = iterator.next();
-            if (o == null) {
-                throw new NullPointerException();
-            }
-            Stone stone = (Stone) o;
+            Object obj = iterator.next();
+            ErrorHandler.checkObjForNull(obj);
+            Stone stone = (Stone) obj;
             boolean addition = add(stone);
             if (addition) changed = true;
         }
@@ -60,9 +54,7 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean contains(Object element) {
-        if (element == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkObjForNull(element);
 
         if (!(element instanceof Stone)) {
             return false;
@@ -82,17 +74,13 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean containsAll(Collection<?> collection) {
-        if (collection == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkCollForNull(collection);
 
         Iterator<?> iterator = collection.iterator();
 
         while (iterator.hasNext()) {
             Object obj = iterator.next();
-            if (obj == null) {
-                throw new NullPointerException();
-            }
+            ErrorHandler.checkObjForNull(obj);
             if (!(obj instanceof Stone)) {
                 return false;
             }
@@ -134,9 +122,7 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean remove(Object element) {//can
-        if (element == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkObjForNull(element);
 
         if (!(element instanceof Stone)) {
             return false;
@@ -160,18 +146,14 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean removeAll(Collection<?> collection) {
-        if (collection == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkCollForNull(collection);
 
         boolean changed = false;
 
         Iterator<?> iterator = collection.iterator();
         while (iterator.hasNext()) {
             Object obj = iterator.next();
-            if (obj == null) {
-                throw new NullPointerException();
-            }
+            ErrorHandler.checkObjForNull(obj);
             if (obj instanceof Stone) {
                 boolean removing = remove((Stone) obj);
                 if (removing) changed = true;
@@ -183,9 +165,7 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public boolean retainAll(Collection<?> collection) {
-        if (collection == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkCollForNull(collection);
 
         boolean changed = false;
         int pos = 0;
@@ -227,9 +207,7 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
     @Override
     @SuppressWarnings("unchecked")
     public <Stone> Stone[] toArray(Stone[] array) {
-        if (array == null) {
-            throw new NullPointerException();
-        }
+        ErrorHandler.checkArrForNull(array);
 
         Stone[] stones = (Stone[]) toArray();
         Stone[] copy = Arrays.copyOf(stones, array.length);
