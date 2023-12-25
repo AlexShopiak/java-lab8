@@ -176,6 +176,21 @@ public class StoneSetTest {
     }
 
     @Test
+    public void testEqualsNull() {
+        //Arrange
+        Set<Stone> set = new StoneSet();
+
+        //Act
+        boolean equality1 = set.equals(null);
+        set.add(new Emerald(1, 2));
+        boolean equality2 = set.equals(null);
+
+        //Assert
+        assertFalse(equality1);
+        assertFalse(equality2);
+    }
+
+    @Test
     public void testHashCode() {
         //Arrange
         Set<Stone> set = new StoneSet();
