@@ -1,14 +1,3 @@
-/*
- * StoneSet
- *
- * Version 1.0
- *
- * (c) 2023 Oleksii Shopiak
- * All rights reserved.
- *
- * It is a typed set of Stone ojects 
- * which has doubly linked array structure
- */
 package collection;
 
 import java.util.Arrays;
@@ -17,7 +6,7 @@ import java.util.Iterator;
 import java.util.Set;
 import stone.Stone;
 
-public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> { 
+public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
     public StoneSet() {}
 
     public StoneSet(Stone element) {
@@ -79,13 +68,13 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
             return false;
         }
 
-        Node current = head; 
-        while (current != null) { 
+        Node current = head;
+        while (current != null) {
             Stone stone = current.data;
             if (stone.equals((Stone) element)) {
                 return true;
             }
-            current = current.next; 
+            current = current.next;
         }
 
         return false;
@@ -121,13 +110,13 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
 
     @Override
     public int hashCode() {
-        int sum = 0; 
+        int sum = 0;
 
         Node current = head;
-        while (current != null) { 
+        while (current != null) {
             Stone stone = current.data;
             sum += (stone != null ? stone.hashCode() : 0);
-            current = current.next; 
+            current = current.next;
         }
 
         return sum;
@@ -153,16 +142,16 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
             return false;
         }
 
-        Node current = head; 
+        Node current = head;
         int pos = 0;
 
-        while (current != null) { 
+        while (current != null) {
             Stone stone = current.data;
             if (stone.equals((Stone) element)) {
                 deleteAtSpecificPosition_DLL(pos);
                 return true;
             }
-            current = current.next; 
+            current = current.next;
             pos++;
         }
 
@@ -201,19 +190,19 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
         boolean changed = false;
         int pos = 0;
 
-        Node current = head; 
-        while (current != null) { 
+        Node current = head;
+        while (current != null) {
             Stone stone = current.data;
             if (!collection.contains(stone)) {
                 deleteAtSpecificPosition_DLL(pos);
                 changed = true;
                 pos--;
             }
-            current = current.next; 
+            current = current.next;
             pos++;
         }
 
-        return changed;    
+        return changed;
     }
 
     @Override
@@ -225,7 +214,7 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
     public Stone[] toArray() {
         int size = size();
         Stone[] stones = new Stone[size];
-        
+
         Node current = head;
         for (int i = 0; i < size; i++) {
             stones[i] = current.data;
@@ -248,3 +237,4 @@ public class StoneSet extends StoneDoublyLinkedList implements Set<Stone> {
         return copy;
     }
 }
+

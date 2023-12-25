@@ -1,13 +1,3 @@
-/*
- * Stone
- *
- * Version 1.0
- *
- * (c) 2023 Oleksii Shopiak
- * All rights reserved.
- *
- * Stone class is a super class for future types of stones
- */
 package stone;
 
 public class Stone{
@@ -52,12 +42,11 @@ public class Stone{
             return false;
         }
 
-        Stone other = (Stone) stone;
         return stone.hashCode() == this.hashCode();
     }
 
     public int hashCode() {
-        int result = 17; 
+        int result = 17;
         result = 31 * result + weightInCarats;
         result = 31 * result + priceInUSDByCarat;
         result = 31 * result + clarity;

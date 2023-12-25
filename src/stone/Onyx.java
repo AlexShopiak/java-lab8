@@ -1,13 +1,3 @@
-/*
- * Onyx
- *
- * Version 1.0
- *
- * (c) 2023 Oleksii Shopiak
- * All rights reserved.
- *
- * Onyx
- */
 package stone;
 
 public class Onyx extends SemiPreciousStone{

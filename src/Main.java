@@ -1,13 +1,3 @@
-/*
- * Main
- *
- * Version 1.0
- *
- * (c) 2023 Oleksii Shopiak
- * All rights reserved.
- *
- * This is an entry point of a project
- */
 import collection.StoneSet;
 import stone.*;
 import java.util.HashSet;
@@ -86,7 +76,7 @@ public class Main {
             for (Object stone : arr) {
                 System.out.println(stone);
             }
-            
+
             //Iterating
             Iterator<Stone> iterator = set.iterator();
             while (iterator.hasNext()) {
