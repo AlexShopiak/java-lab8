@@ -136,13 +136,19 @@ public class StoneSetTest {
         set3.add(new    Ruby(3, 9));
         set3.add(new    Onyx(1, 2));
 
+        Set<Stone> set4 = new HashSet<>();
+        set4.add(new Emerald(1, 2));
+        set4.add(new    Ruby(3, 9));
+
         //Act
         boolean containing1 = set.containsAll(set2);
         boolean containing2 = set.containsAll(set3);
+        boolean containing3 = set.containsAll(set4);
 
         //Assert
         assertTrue(containing1);
         assertFalse(containing2);
+        assertTrue(containing3);
     }
 
     @Test
