@@ -87,7 +87,8 @@ public class Main {
             System.out.println("Size: " + set.size()); //0
 
             //Сatching
-            set.addAll(null);
+            Set<Stone> nullSet = null;
+            set.addAll(nullSet);
         } catch (Exception err) {
             System.out.println("Error: " + err);//NullPointerException
         }
